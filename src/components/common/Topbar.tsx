@@ -1,5 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
-import colorConfigs from "../../configs/colorConfigs";
+import { AppBar, Toolbar, TextField, Box } from "@mui/material";
 import sizeConfigs from "../../configs/sizeConfigs";
 
 const Topbar = () => {
@@ -10,14 +9,33 @@ const Topbar = () => {
         width: `calc(100% - ${sizeConfigs.sidebar.width})`,
         ml: sizeConfigs.sidebar.width,
         boxShadow: "unset",
-        backgroundColor: colorConfigs.topbar.bg,
-        color: colorConfigs.topbar.color
+        backgroundColor: "white", // White background
+        color: "black", // Black text color
+        display: "flex",
+        justifyContent: "center",
+        height: "44px", // Reduced height
       }}
     >
-      <Toolbar>
-        <Typography variant="h6">
-          React sidebar with dropdown
-        </Typography>
+      <Toolbar sx={{ width: "100%", display: "flex", justifyContent: "center", minHeight: "44px" }}>
+        <Box sx={{ width: "50%", transform: "translateX(-180px)" }}> 
+          <TextField
+            fullWidth
+            variant="outlined"
+            defaultValue="grovio.xyz"
+            InputProps={{
+              sx: {
+                textAlign: "center",
+                fontWeight: "bold",
+                backgroundColor: "transparent",
+                borderRadius: "8px",
+                "& .MuiOutlinedInput-input": {
+                  textAlign: "center",
+                  padding: "6px", // Reduce padding for a smaller height
+                },
+              },
+            }}
+          />
+        </Box>
       </Toolbar>
     </AppBar>
   );

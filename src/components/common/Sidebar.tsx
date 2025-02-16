@@ -1,6 +1,4 @@
-import { Avatar, Drawer, List, Stack, Toolbar } from "@mui/material";
-import assets from "../../assets";
-import colorConfigs from "../../configs/colorConfigs";
+import { Drawer, List, Stack, Toolbar, Typography } from "@mui/material";
 import sizeConfigs from "../../configs/sizeConfigs";
 import appRoutes from "../../routes/appRoutes";
 import SidebarItem from "./SidebarItem";
@@ -17,8 +15,8 @@ const Sidebar = () => {
           width: sizeConfigs.sidebar.width,
           boxSizing: "border-box",
           borderRight: "0px",
-          backgroundColor: colorConfigs.sidebar.bg,
-          color: colorConfigs.sidebar.color
+          backgroundColor: "#FFFFFF", 
+          color: "black"
         }
       }}
     >
@@ -29,10 +27,12 @@ const Sidebar = () => {
             direction="row"
             justifyContent="center"
           >
-            <Avatar src={assets.images.logo} />
+            <Typography variant="h6" fontWeight="bold">
+              Grovio
+            </Typography>
           </Stack>
         </Toolbar>
-        {appRoutes.map((route, index) => (
+        {appRoutes.map((route, index) =>
           route.sidebarProps ? (
             route.child ? (
               <SidebarItemCollapse item={route} key={index} />
@@ -40,8 +40,9 @@ const Sidebar = () => {
               <SidebarItem item={route} key={index} />
             )
           ) : null
-        ))}
+        )}
       </List>
+
     </Drawer>
   );
 };
