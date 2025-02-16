@@ -28,7 +28,7 @@ const Sidebar = () => {
             justifyContent="center"
           >
             <Typography variant="h6" fontWeight="bold">
-              Grovio
+              Grovio.
             </Typography>
           </Stack>
         </Toolbar>
